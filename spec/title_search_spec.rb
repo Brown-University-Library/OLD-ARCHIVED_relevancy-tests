@@ -13,7 +13,7 @@ describe "Title Search" do
   end
 
   it "505t included in title search: Gothic classics b4156972" do
-    resp = solr_resp_doc_ids_only(title_search_args("I've a pain in my head"))
+    resp = solr_resp_doc_ids_only(title_search_args("Carmilla"))
     resp.should have_document(did("b4156972"), 5)
   end
 
