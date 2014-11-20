@@ -45,9 +45,9 @@ def did(sid)
   return {'id' => sid}
 end
 
-#verify that this matches bul-search
+#these should match local Solr config
 def title_search_args(query_str)
-  {'q'=>"{!qf=$qf_title pf=$pf_title pf3=$pf3_title pf2=$pf2_title}#{query_str}", 'qt'=>'search'}
+  {'q'=>"{!qf=$title_qf pf=$title_pf}#{query_str}", 'qt'=>'search'}
 end
 
 # send a GET request to the default Solr request handler with the indicated Solr parameters
