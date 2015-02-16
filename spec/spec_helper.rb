@@ -41,9 +41,22 @@ end
 #
 
 #lazily make the doc id hash
-def did(sid)
+def doc_id(sid)
   return {'id' => sid}
 end
+
+#send a request to the default andler
+def default_search_args(query_str)
+  {'q'=> query_str}
+end
+
+#helper to run a default search test
+def default_search(rec_id, query, position)
+  match = doc_id(rec_id)
+  resp = solr_resp_doc_ids_only(default_search_args(query))
+  resp.should have_document(match, position)
+end
+
 
 #these should match local Solr config
 def title_search_args(query_str)
