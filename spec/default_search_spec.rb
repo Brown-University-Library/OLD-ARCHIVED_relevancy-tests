@@ -10,4 +10,8 @@ describe "Default search" do
     default_search('b2041590', 'remains of the day', 10)
   end
 
+  it "Should match partial title and TOC text" do
+    default_search('b3176352', 'Effects of globalization in india', 5)
+  end
+
 end
