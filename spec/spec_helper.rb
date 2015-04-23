@@ -26,7 +26,7 @@ end
 RSpec.configure do |config|
   config.deprecation_stream = 'log/deprecations.log'
   config.color = true
-  solr_config = {:url => ENV['SOLR_URL'] + '/' + ENV['SOLR_CORE']}
+  solr_config = {:url => ENV['SOLR_BASE_URL'] + '/' + ENV['SOLR_CORE']}
   silence_warnings {
     @@solr = RSolr.connect(solr_config)
     puts "Solr URL: #{@@solr.uri}"
