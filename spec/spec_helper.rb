@@ -5,6 +5,13 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 
 require 'rspec-solr'
 
+require 'logger'
+#For HTTP debugging
+require 'http_logger'
+
+Net::HTTP.logger = Logger.new(STDOUT)
+Net::HTTP.colorize = true 
+
 # Runs a block of code without warnings.
 # e.g. as class vars here are on Object class, we get a lot of
 #   "class variable access from toplevel" warnings
@@ -19,7 +26,7 @@ end
 RSpec.configure do |config|
   config.deprecation_stream = 'log/deprecations.log'
   config.color = true
-  solr_config = {:url => ENV['SOLR_URL']}
+  solr_config = {:url => ENV['SOLR_URL'] + '/' + ENV['SOLR_CORE']}
   silence_warnings {
     @@solr = RSolr.connect(solr_config)
     puts "Solr URL: #{@@solr.uri}"
@@ -75,7 +82,7 @@ end
 # use these Solr HTTP params to reduce the size of the Solr responses
 # response documents will only have id fields, and there will be no facets in the response
 silence_warnings {
-  @@doc_ids_only = {'fl'=>'id', 'facet'=>'false'}
+  @@doc_ids_only = {'fl'=>'id, title_display', 'facet'=>'false'}
   @@doc_ids_short_titles = {'fl'=>'id,title_245a_display', 'facet'=>'false'}
   @@doc_ids_full_titles = {'fl'=>'id,title_full_display', 'facet'=>'false'}
 }
