@@ -9,6 +9,7 @@ GEM
     columnize (0.8.9)
     debugger-linecache (1.2.0)
     diff-lcs (1.2.5)
+    http_logger (0.5.1)
     rake (10.3.2)
     rsolr (1.0.10)
       builder (>= 2.1.2)
@@ -29,6 +30,7 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  http_logger
   rake
   rsolr
   rspec (~> 2.14)
