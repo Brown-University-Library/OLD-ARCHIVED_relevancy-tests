@@ -8,6 +8,7 @@ describe "Default search" do
 
   it "Should match partial titles" do
     default_search('b2041590', 'remains of the day', 10)
+    default_search('b7113006', 'time is a toy', 3)
   end
 
   it "Should match full title strings without quotes" do
