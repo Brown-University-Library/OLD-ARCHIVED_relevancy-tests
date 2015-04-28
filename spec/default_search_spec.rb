@@ -23,4 +23,8 @@ describe "Default search" do
     default_search('b3176352', 'Effects of globalization in india', 10)
   end
 
+  it "Should match electronic journals for exact title search" do
+    default_search('b1864577', 'scientific american', 5)
+  end
+
 end
