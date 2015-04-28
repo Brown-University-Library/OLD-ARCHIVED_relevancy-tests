@@ -20,7 +20,7 @@ describe "Default search" do
   end
 
   it "Should match partial title and TOC text" do
-    default_search('b3176352', 'Effects of globalization in india', 5)
+    default_search('b3176352', 'Effects of globalization in india', 10)
   end
 
 end
