@@ -27,4 +27,10 @@ describe "Default search" do
     default_search('b1864577', 'scientific american', 5)
   end
 
+  describe "Authors" do
+    it "Should provide reasonable results for authors with common tokens in names" do
+      default_search('b3459028', 'browning christopher', 10)
+    end
+  end
+
 end
