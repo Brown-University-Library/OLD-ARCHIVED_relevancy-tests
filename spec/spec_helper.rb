@@ -9,8 +9,8 @@ require 'logger'
 #For HTTP debugging
 require 'http_logger'
 
-Net::HTTP.logger = Logger.new(STDOUT)
-Net::HTTP.colorize = true 
+HttpLogger.logger = Logger.new(STDOUT)
+HttpLogger.colorize = true
 
 # Runs a block of code without warnings.
 # e.g. as class vars here are on Object class, we get a lot of
@@ -68,6 +68,11 @@ end
 #these should match local Solr config
 def title_search_args(query_str)
   {'q'=>"{!qf=$title_qf pf=$title_pf}#{query_str}", 'qt'=>'search'}
+end
+
+#these should match local Solr config
+def author_search_args(query_str)
+  {'q'=>"{!qf=$author_qf pf=$author_pf}#{query_str}", 'qt'=>'search'}
 end
 
 # send a GET request to the default Solr request handler with the indicated Solr parameters
