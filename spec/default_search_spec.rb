@@ -29,6 +29,13 @@ describe "Default search" do
     it "Should prefer primary titles over additional titles" do
       default_search('b1864577', 'scientific american', 5)
     end
+
+    it "Should rank a commonly used alternate title high" do
+      #From Kerri Hicks 5/8/15
+      default_search('b6543998', ' DSM V', 5)
+      default_search('b6543998', ' DSM-V', 5)
+    end
+
   end
 
   describe "Authors" do
