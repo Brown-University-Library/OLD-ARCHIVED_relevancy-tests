@@ -64,6 +64,12 @@ def default_search(rec_id, query, position)
   resp.should have_document(match, position)
 end
 
+#helper to run a default search test and check number of docs returned
+def default_search_max_docs(query, number)
+  resp = solr_resp_doc_ids_only(default_search_args(query))
+  resp.should have_at_most(number).documents
+end
+
 
 #these should match local Solr config
 def title_search_args(query_str)
