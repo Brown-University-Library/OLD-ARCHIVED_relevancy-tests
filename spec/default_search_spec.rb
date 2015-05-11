@@ -44,4 +44,10 @@ describe "Default search" do
     end
   end
 
+  describe "Max documents - make sure " do
+    it "Brazil query was returning over 4,000 documents on 5/11/15" do
+      default_search_max_docs("slave trade in brazil", 200)
+    end
+  end
+
 end
