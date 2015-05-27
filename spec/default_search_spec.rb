@@ -50,4 +50,28 @@ describe "Default search" do
     end
   end
 
+  describe "Handling various search patterns" do
+    it "known LCSH subject strings" do
+      default_search('b2771607', 'Black Panther party History', 5)
+    end
+
+    it "left anchored primary titles" do
+      default_search('b2022476', 'Ordinary men', 5)
+    end
+
+    it "variant title" do
+      default_search('b6543998', 'DSM V', 5)
+    end
+
+    it "uniform title" do
+      default_search('b2017949', 'Huis clos', 10)
+    end
+
+    # This is at ~ 15
+    # it "partial variant title" do
+    #   default_search('b5164667', 'university physics', 10)
+    # end
+
+  end
+
 end
