@@ -90,7 +90,9 @@ describe "Default search" do
     end
 
     it "Should match issns" do
-      default_search('b4105405', '0191-1813', 5)
+      # ISSN searches need to be in quotes in default box
+      # for now.  Because of hypens?
+      default_search('b4105405', '"0191-1813"', 5)
     end
   end
 
