@@ -74,4 +74,10 @@ describe "Default search" do
 
   end
 
+  describe "Call numbers" do
+    it "Should match full call numbers" do
+      default_search('b6355793', "QL466 .M44 2008", 10)
+    end
+  end
+
 end
