@@ -80,4 +80,18 @@ describe "Default search" do
     end
   end
 
+  describe "Identifiers in default search should work" do
+    it "Should match isbns" do
+      default_search('b6355793', '9780892369294', 5)
+    end
+
+    it "Should match oclc numbers" do
+      default_search('b6355793', '225874122', 5)
+    end
+
+    it "Should match issns" do
+      default_search('b4105405', '0191-1813', 5)
+    end
+  end
+
 end
