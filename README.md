@@ -10,7 +10,7 @@ Built with [rspec-solr](https://github.com/sul-dlss/rspec-solr) and based on [sw
  - `git clone git@github.com:Brown-University-Library/relevancy-tests.git`
  - `cd relevancy-tests`
  - `bundle install`
- - `cp .sample-env .env`
+ - `cp .env-sample .env`
  - adjust the variables in .env to point to your solr instance
 
 ####Running the tests
