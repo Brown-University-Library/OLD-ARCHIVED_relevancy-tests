@@ -7,7 +7,7 @@ Built with [rspec-solr](https://github.com/sul-dlss/rspec-solr) and based on [sw
 ###running the tests
 
 ####Install/configuration
- - `git clone
+ - `git clone git@github.com:Brown-University-Library/relevancy-tests.git`
  - `cd relevancy-tests`
  - `bundle install`
  - `cp .sample-env .env`
