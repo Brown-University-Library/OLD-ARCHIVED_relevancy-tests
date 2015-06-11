@@ -86,7 +86,7 @@ end
 #  those to get only id fields and no facets in the response
 # @return [RSpecSolr::SolrResponseHash] object for rspec-solr testing the Solr response
 def solr_resp_doc_ids_only(solr_params)
-  solr_response(solr_params.merge(@@doc_ids_only))
+  silence_warnings { solr_response(solr_params.merge(@@doc_ids_only)) }
 end
 
 
