@@ -96,4 +96,45 @@ describe "Default search" do
     end
   end
 
+  describe "Searches with operators" do
+
+    describe "France examples" do
+      it "Should include de gaulle and politics and not include france" do
+        default_search('b2493168', "De gaulle +politics -france", 5)
+      end
+
+      it "Should exclude france" do
+        default_search_excludes('b13507813', "De gaulle +politics -france")
+      end
+
+      it "Should include politics and france" do
+        default_search('b1350781', "De gaulle +politics +france", 5)
+      end
+
+      it "Should include all of the + and - france searches" do
+        default_search('b1350781', "De gaulle politics", 5)
+      end
+    end
+
+    describe "Disease history europe war women examples" do
+      it "Base query" do
+        default_search('b5738569', "disease history europe war economics women religion", 5)
+      end
+
+      it "requiring women (negative)" do
+        default_search_excludes('b5738569', "disease history europe war economics +women religion")
+      end
+
+      it "requiring women (positive)" do
+        default_search('b3900073', "disease history europe war economics +women religion", 5)
+      end
+
+      it "exclude women" do
+        default_search('b5738569', "disease history europe war economics -women religion", 5)
+      end
+    end
+
+
+  end
+
 end
