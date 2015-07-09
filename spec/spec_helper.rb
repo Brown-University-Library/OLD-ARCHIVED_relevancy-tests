@@ -64,6 +64,13 @@ def default_search(rec_id, query, position)
   resp.should have_document(match, position)
 end
 
+#helper to run a default search and verify doc is excluded
+def default_search_excludes(rec_id, query)
+  match = doc_id(rec_id)
+  resp = solr_resp_doc_ids_only(default_search_args(query))
+  resp.should_not have_document(match)
+end
+
 #helper to run a default search test and check number of docs returned
 def default_search_max_docs(query, number)
   resp = solr_resp_doc_ids_only(default_search_args(query))
