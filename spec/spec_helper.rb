@@ -67,7 +67,9 @@ end
 #helper to run a default search test and check number of docs returned
 def default_search_max_docs(query, number)
   resp = solr_resp_doc_ids_only(default_search_args(query))
-  resp.should have_at_most(number).documents
+  # Should be able to use rspec-solr like below but was failing
+  # have_at_most(3).documents
+  expect(resp.size).to be <= number
 end
 
 
