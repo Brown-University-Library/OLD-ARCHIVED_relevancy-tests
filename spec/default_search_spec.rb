@@ -46,7 +46,7 @@ describe "Default search" do
 
   describe "Max documents - make sure " do
     it "Brazil query was returning over 4,000 documents on 5/11/15" do
-      default_search_max_docs("slave trade in brazil", 200)
+      default_search_max_docs("slave trade in brazil", 250)
     end
   end
 
@@ -56,7 +56,7 @@ describe "Default search" do
     end
 
     it "left anchored primary titles" do
-      default_search('b2022476', 'Ordinary men', 5)
+      default_search('b2022476', 'Ordinary men', 6)
     end
 
     it "variant title" do
@@ -118,7 +118,7 @@ describe "Default search" do
 
     describe "Disease history europe war women examples" do
       it "Base query" do
-        default_search('b5738569', "disease history europe war economics women religion", 5)
+        default_search('b5738569', "disease history europe war economics women religion", 8)
       end
 
       it "requiring women (negative)" do
