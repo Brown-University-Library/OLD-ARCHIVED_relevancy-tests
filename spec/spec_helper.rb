@@ -90,6 +90,11 @@ def author_search_args(query_str)
   {'q'=>"{!qf=$author_qf pf=$author_pf}#{query_str}", 'qt'=>'search'}
 end
 
+#these should match local Solr config
+def title_and_author_search_args(title_query, author_query)
+  {'q'=>"_query_:\"{!dismax spellcheck.dictionary=title qf=$title_qf pf=$title_pf}#{title_query}\" AND _query_:\"{!dismax spellcheck.dictionary=author qf=$author_qf pf=$author_pf}#{author_query}\"", 'qt'=>'search', 'defType'=>'lucene'}
+end
+
 # send a GET request to the default Solr request handler with the indicated Solr parameters
 # @param solr_params [Hash] the key/value pairs to be sent to Solr as HTTP parameters, in addition to
 #  those to get only id fields and no facets in the response
