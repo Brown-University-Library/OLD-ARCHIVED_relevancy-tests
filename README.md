@@ -14,4 +14,5 @@ Built with [rspec-solr](https://github.com/sul-dlss/rspec-solr) and based on [sw
  - adjust the variables in .env to point to your solr instance
 
 ####Running the tests
+ - source .env
  - `bundle exec rspec`
