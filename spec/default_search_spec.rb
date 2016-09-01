@@ -100,7 +100,7 @@ describe "Default search" do
 
     describe "France examples" do
       it "Should include de gaulle and politics and not include france" do
-        default_search('b2493168', "De gaulle +politics -france", 5)
+        default_search('b3296339', "De gaulle +politics -france", nil)
       end
 
       it "Should exclude france" do
