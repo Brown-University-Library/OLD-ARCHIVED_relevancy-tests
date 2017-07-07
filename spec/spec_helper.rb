@@ -1,6 +1,5 @@
 require "yaml"
 require 'rsolr'
-require 'byebug'
 
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 
