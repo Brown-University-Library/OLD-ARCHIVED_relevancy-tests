@@ -64,6 +64,14 @@ def default_search(rec_id, query, position)
   resp.should have_document(match, position)
 end
 
+# Make sure the rec_id is found below or at the position requested
+def default_search_within(rec_id, query, position)
+  resp = solr_resp_doc_ids_only(default_search_args(query))
+  docs = resp["response"]["docs"].take(position)
+  count = docs.select {|doc| doc["id"] == rec_id }.count
+  expect(count).to be(1)
+end
+
 #helper to run a default search and verify doc is excluded
 def default_search_excludes(rec_id, query)
   match = doc_id(rec_id)

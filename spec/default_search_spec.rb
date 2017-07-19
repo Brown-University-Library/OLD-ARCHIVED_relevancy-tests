@@ -32,8 +32,8 @@ describe "Default search" do
 
     it "Should rank a commonly used alternate title high" do
       #From Kerri Hicks 5/8/15
-      default_search('b6543998', ' DSM V', 5)
-      default_search('b6543998', ' DSM-V', 5)
+      default_search_within('b6543998', ' DSM V', 10)
+      default_search_within('b6543998', ' DSM-V', 10)
     end
 
   end
@@ -60,7 +60,7 @@ describe "Default search" do
     end
 
     it "variant title" do
-      default_search('b6543998', 'DSM V', 5)
+      default_search_within('b6543998', 'DSM V', 10)
     end
 
     it "uniform title" do
