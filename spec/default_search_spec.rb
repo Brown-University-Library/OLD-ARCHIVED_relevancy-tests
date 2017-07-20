@@ -56,7 +56,7 @@ describe "Default search" do
     end
 
     it "left anchored primary titles" do
-      default_search('b2022476', 'Ordinary men', 6)
+      default_search_within('b2022476', 'Ordinary men', 10)
     end
 
     it "variant title" do
@@ -66,12 +66,6 @@ describe "Default search" do
     it "uniform title" do
       default_search('b2017949', 'Huis clos', 10)
     end
-
-    # This is at ~ 15
-    # it "partial variant title" do
-    #   default_search('b5164667', 'university physics', 10)
-    # end
-
   end
 
   describe "Call numbers" do
