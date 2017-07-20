@@ -87,6 +87,15 @@ def default_search_max_docs(query, number)
   expect(resp.size).to be <= number
 end
 
+def solr_get_by_id(id)
+  solr_params = {fq: "id:#{id}"}
+  resp = silence_warnings { solr_response(solr_params) }
+  count = resp["response"]["docs"].count
+  if count != 1
+    raise "Unexpected number of documents found for ID #{id}: #{count}"
+  end
+  resp["response"]["docs"][0]
+end
 
 #these should match local Solr config
 def title_search_args(query_str)
